@@ -17,13 +17,13 @@ struct ListView: View {
         List {
             ForEach(items, id: \.self) { item in
                 ListRowView(title: item)
-            } 
+            }
         }
         .listStyle(PlainListStyle())
         .navigationTitle("To Do List 📝")
         .navigationBarItems(
             leading: EditButton(),
-            trailing: NavigationLink("Add", destination: Text("Desination")))
+            trailing: NavigationLink("Add", destination: AddView(textFieldText: "Item-1")))
     }
 }
 
