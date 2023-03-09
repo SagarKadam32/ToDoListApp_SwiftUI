@@ -20,9 +20,7 @@ struct ListView: View {
             ForEach(items) { item in
                 ListRowView(item: item)
             }
-            .onDelete(perform: { indexSet in
-                items.remove(atOffsets: indexSet)
-            })
+            .onDelete(perform: deleteItem(indexSet:))
         }
         .listStyle(PlainListStyle())
         .navigationTitle("To Do List 📝")
