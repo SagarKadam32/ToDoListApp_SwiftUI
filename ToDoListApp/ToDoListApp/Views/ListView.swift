@@ -20,12 +20,19 @@ struct ListView: View {
             ForEach(items) { item in
                 ListRowView(item: item)
             }
+            .onDelete(perform: { indexSet in
+                items.remove(atOffsets: indexSet)
+            })
         }
         .listStyle(PlainListStyle())
         .navigationTitle("To Do List 📝")
         .navigationBarItems(
             leading: EditButton(),
             trailing: NavigationLink("Add", destination: AddView(textFieldText: "Item-1")))
+    }
+    
+    func deleteItem(indexSet: IndexSet) {
+        items.remove(atOffsets: indexSet)
     }
 }
 
